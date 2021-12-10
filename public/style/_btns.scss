@@ -1,0 +1,129 @@
+.btn-primary-cus {
+    text-decoration: none;
+    background: linear-gradient(90deg, $LimeGreen 0%, rgba(40, 186, 206, 1) 100%);
+    color: $White;
+    padding: 0.8em 2em !important;
+    border-radius: 20px;
+    transition: opacity 0.3s ease-in-out;
+    border: none;
+    &:hover {
+        opacity: 0.8;
+        color: $White;
+    }
+}
+
+.btn-secondary-cus {
+    display: inline-block;
+    text-decoration: none;
+    background: $LimeGreen;
+    color: $White !important;
+    padding: 0.6em 2em;
+    border-radius: 20px;
+    border: none;
+    transition: opacity 0.3s ease-in-out;
+    position: relative;
+    z-index: 10;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-third-cus {
+    display: inline-block;
+    text-decoration: none;
+    background: $darkBlue;
+    color: $White !important;
+    padding: 0.6em 2em;
+    border-radius: 20px;
+    border: none;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-third-outline-cus {
+    display: inline-block;
+    text-decoration: none;
+    background: transparent;
+    color: $darkBlue !important;
+    padding: 0.6em 2em;
+    border-radius: 0;
+    border: 2px solid $darkBlue;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+        background: $darkBlue;
+        color: $White !important;
+    }
+}
+
+.btn-forth-cus {
+    display: inline-block;
+    text-decoration: none;
+    background: $wraningColor;
+    color: $White !important;
+    padding: 0.6em 2em;
+    border-radius: 20px;
+    border: none;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.nav-item-cus,
+.nav-item-cus-dec {
+    border-radius: 20px;
+    transition: opacity 0.3s ease-in-out;
+    color: $White !important;
+    padding: 0em 1.1em !important;
+    border: none;
+    & > * {
+        color: $White !important;
+    }
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.nav-item-cus {
+    background: $LimeGreen;
+}
+
+.nav-item-cus-dec {
+    background: $crimson;
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+
+.signup-btn {
+    padding: 0.5em 1.1em !important;
+}
+
+.btn-see-me {
+    background-color: $LimeGreen;
+    display: grid;
+    place-items: center;
+    &::after {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: "";
+        background-color: $LimeGreen;
+        animation: pulse 1.2s infinite;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.75;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}

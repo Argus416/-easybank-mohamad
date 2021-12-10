@@ -1,0 +1,108 @@
+main.blogs {
+    .header-blog {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .left {
+            .title-container {
+                margin-bottom: 2em;
+                h1 {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .right {
+            .search_form {
+                position: relative;
+                .fa-search {
+                    position: absolute;
+                    left: 13px;
+                    top: 12px;
+                }
+                input {
+                    background-color: transparent;
+                    margin-right: 20px;
+                    padding: 7px 10px 7px 38px;
+                    border: 2px solid $darkBlue;
+                    width: 330px;
+                }
+            }
+        }
+    }
+
+    .articles-container {
+        justify-content: space-between;
+        .left {
+            width: 100%;
+            .article {
+                margin-bottom: 1.8em;
+                border-bottom: 1px solid $LightGrayishBlue;
+                display: flex;
+                overflow: hidden;
+                word-break: break-all;
+                .left {
+                    width: 25%;
+                    margin-right: 15px;
+                    img {
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                }
+                .right {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    justify-content: space-between;
+                }
+                &:last-child {
+                    border-bottom: 1px solid transparent;
+                }
+                a {
+                    text-decoration: none;
+                }
+                p {
+                    padding-bottom: 0.2em;
+                }
+                .view-more-container {
+                    margin-bottom: 0.7em;
+                }
+            }
+        }
+        .right {
+            width: 24%;
+            h4 {
+                margin-bottom: 18px;
+            }
+            .categorie-list {
+                padding-left: 13px;
+                list-style: none;
+                li {
+                    input {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    h1 {
+        font-size: 2.8em;
+    }
+    h2.err-search {
+        font-size: 1.7em;
+    }
+    .header-blog {
+        flex-direction: column;
+        align-items: flex-start !important;
+        margin-bottom: 3em;
+    }
+    .article {
+        .left {
+            min-width: 220px;
+            width: 50% !important;
+        }
+    }
+}
