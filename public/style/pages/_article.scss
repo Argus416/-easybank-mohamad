@@ -1,0 +1,15 @@
+.header-article {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img-container {
+    width: 100%;
+    img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+}

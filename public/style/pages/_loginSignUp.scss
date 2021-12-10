@@ -1,0 +1,166 @@
+main.signUpForm,
+main.loginForm {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(-45deg, $LimeGreen 0%, rgba(40, 186, 206, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 400% 400%;
+    animation: backgroundAnimation 7s ease infinite;
+    .form-container {
+        position: relative;
+        text-align: center;
+        padding: 3em 3.5em;
+        background-color: $White;
+        width: 34%;
+        min-width: 380px;
+        height: 70vh;
+        min-height: 450px;
+        margin: auto;
+        border-radius: 10px;
+        .logo {
+            margin: 1em 0em 3em;
+            width: 250px;
+        }
+        .link-parent {
+            position: absolute;
+            text-align: center;
+            bottom: 30px;
+            width: 100%;
+            left: 0;
+            .link {
+            }
+        }
+
+        form {
+            text-align: left;
+
+            .label {
+                position: relative;
+
+                &.email-parent {
+                    .input-parent {
+                        &::before {
+                            content: "\f0e0";
+                        }
+                    }
+                }
+                &.password-parent {
+                    margin-top: 20px;
+                    label {
+                        margin-top: 10px;
+                        margin-bottom: 4px;
+                    }
+                    .input-parent {
+                        &::before {
+                            content: "\f023";
+                        }
+                    }
+                }
+                &.prenom-signup-container {
+                    .input-parent {
+                        &::before {
+                            content: "\f007";
+                        }
+                    }
+                }
+                &.nom-signup-container {
+                    .input-parent {
+                        &::before {
+                            content: "\f007";
+                        }
+                    }
+                }
+                &.email-signup-container {
+                    .input-parent {
+                        &::before {
+                            content: "\f0e0";
+                        }
+                    }
+                }
+                &.password-signup-container {
+                    .input-parent {
+                        &::before {
+                            content: "\f023";
+                        }
+                    }
+                }
+
+                label {
+                    display: block;
+                }
+                .err-text {
+                    margin-top: 0.9em !important;
+                    margin-bottom: 1em !important;
+                }
+
+                .input-parent {
+                    margin-bottom: 1em;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    &::before {
+                        position: absolute;
+                        font-family: "Helvetica", FontAwesome, sans-serif;
+                        font-size: 1.2em;
+                        margin-left: 10px;
+                        color: $GrayishBlue;
+                    }
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="password"] {
+                        width: 100%;
+                        padding: 0.3em 0 0.3em 2.8em;
+                        border: none;
+                        border-bottom: 1px solid $GrayishBlue;
+                    }
+                }
+            }
+
+            .nickname-signup-container {
+                .input-parent {
+                    &::before {
+                        content: "\f507" !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn-submit {
+    margin-top: 0.6em;
+}
+
+main.signUpForm {
+    .form-container {
+        min-height: 700px;
+        .logo {
+            margin-bottom: 0;
+        }
+    }
+}
+
+#prenom-signup,
+#nom-signup,
+#email-signup,
+#password-signup,
+#email-login,
+#password-login {
+    &:focus {
+        box-shadow: none !important;
+        border: none !important;
+        border-bottom: 1px solid $GrayishBlue !important;
+    }
+}
+
+.err-input {
+    animation-name: errAnim;
+    animation-duration: 0.1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+
+    border-bottom: 1px solid crimson !important;
+}
