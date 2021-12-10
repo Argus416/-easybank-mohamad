@@ -45,7 +45,7 @@ class UsersController{
         $urlGenerator = $param['urlGenerator'];
         $pdoSignleton = $param['PDOSignleton'];  
         
-        $prenom = $nom = $email = $password = $imgProfile = $dateDeNaissance = '';
+        $prenom = $nom = $email = $password = $imgProfile = $dateDeNaissance = $tokenInput = '';
         
         if(isset($_SESSION['idAdmin'])){
             $id = filter_var($_SESSION['idAdmin'], FILTER_VALIDATE_INT);
@@ -56,8 +56,9 @@ class UsersController{
         $public = $_ENV['PUBLIC'];
 
         $token = Helpers::tokenGenerator();
-        $tokenInput = filter_var($_POST['token-edit-profile'], FILTER_SANITIZE_STRING);
-        
+        if(isset($_POST['token-edit-profile'])){
+            $tokenInput = filter_var($_POST['token-edit-profile'], FILTER_SANITIZE_STRING);
+        }
         
         if(isset($_POST['update-account']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
             if (hash_equals($_SESSION['token'], $tokenInput)) {

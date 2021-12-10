@@ -94,11 +94,14 @@ class ArticlesController{
         
         $pdoSignleton = $param['PDOSignleton'];
         $urlGenerator = $param['urlGenerator'];
-        
+        $tokenInput = '';
         $articles = $this->ArticlesModel->getArticles($pdoSignleton);
         
         $token = Helpers::tokenGenerator();
-        $tokenInput = filter_var($_POST['article-del-token'], FILTER_SANITIZE_STRING);
+
+        if(isset($_POST['article-del-token'])){
+            $tokenInput = filter_var($_POST['article-del-token'], FILTER_SANITIZE_STRING);
+        }
 
         if(isset($_POST['article-del']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -128,10 +131,14 @@ class ArticlesController{
         $pdoSignleton = $param['PDOSignleton'];  
         $urlGenerator = $param['urlGenerator'];
         $title = $body = '';        
-       
-        $token = Helpers::tokenGenerator();
-        $tokenInput = filter_var($_POST['token-add-article'], FILTER_SANITIZE_STRING);
+        $tokenInput = '';
         
+        $token = Helpers::tokenGenerator();
+        
+        if(isset($_POST['token-add-article'])){
+            $tokenInput = filter_var($_POST['token-add-article'], FILTER_SANITIZE_STRING);
+        }
+
         if(isset($_POST['add-article']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
             
             $imgArticle = Helpers::uploadPhoto('imgArticle', 'public/upload/post-img');
@@ -174,12 +181,14 @@ class ArticlesController{
         $urlGenerator = $param['urlGenerator'];
 
         $id = $param['id'];
-        $title = $body = '';
+        $title = $body = $tokenInput = '';
 
         $getArticle = $this->ArticlesModel->getArticle($pdoSignleton, $id);
 
         $token = Helpers::tokenGenerator();
-        $tokenInput = filter_var($_POST['token-edit-article'], FILTER_SANITIZE_STRING);
+        if(isset($_POST['token-edit-article'])){
+            $tokenInput = filter_var($_POST['token-edit-article'], FILTER_SANITIZE_STRING);
+        }
         
 
         if(isset($_POST['edit-article']) && $_SERVER['REQUEST_METHOD'] === 'POST'){

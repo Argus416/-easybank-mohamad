@@ -28,11 +28,13 @@ class ConnexionController{
     public function login($param){
         $urlGenerator = $param['urlGenerator'];
         $pdoSignleton = $param['PDOSignleton'];  
+        $tokenInput = '';
         Helpers::VerifyIfUserExist($this->nbUtilisateur, $urlGenerator);
         
         $token = Helpers::tokenGenerator();
-        $tokenInput = filter_var($_POST['token-login'], FILTER_SANITIZE_STRING);
-         
+        if(isset($_POST['token-login'])){
+            $tokenInput = filter_var($_POST['token-login'], FILTER_SANITIZE_STRING);
+        }
         $err = "";
         
         if($_SESSION['isLoggedin'] != true){
@@ -81,14 +83,16 @@ class ConnexionController{
         $urlGenerator = $param['urlGenerator'];
         $pdoSignleton = $param['PDOSignleton'];  
         $prenom = $nom = $email = $password = '';
-
+        $tokenInput = '';
         // si un utilisateur est déjà créé
          if($this->nbUtilisateur === 1){
             header('Location:'.$urlGenerator->generate('accueil'));
         }
 
         $token = Helpers::tokenGenerator();
-        $tokenInput = filter_var($_POST['token-signup'], FILTER_SANITIZE_STRING);
+        if(isset($_POST['token-signup'])){
+            $tokenInput = filter_var($_POST['token-signup'], FILTER_SANITIZE_STRING);
+        }
         
         
         if(isset($_POST['create-account']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
